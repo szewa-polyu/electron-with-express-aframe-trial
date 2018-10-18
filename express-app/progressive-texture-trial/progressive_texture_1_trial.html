@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Solar System Scene • A-Frame</title>
+    <meta name="description" content="Solar System Scene">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>    
+    <script src="components/progressive-texture-1.js"></script> 
+  </head>
+  <body>      
+    <a-scene>
+      <a-assets>
+        <img id="earth-normal" crossorigin="anonymous" src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg" />
+        <img id="earth-cloud-small" crossorigin="anonymous" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_350.jpg" />
+        <img id="earth-bathymetry" crossorigin="anonymous" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73963/gebco_08_rev_bath_3600x1800_color.jpg" />    
+      </a-assets>
+
+      <a-entity id="cam" camera="active: true" wasd-controls="" position="0 0 50" rotation="" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""></a-entity>
+
+      <a-sphere src="#earth-cloud-small"
+        radius="2" segments-height="53"
+        progressive-texture-1="previewImg: #earth-cloud-small; detailedImg: #earth-bathymetry; thresholdDistance: 25; probeObject: #cam;"
+      </a-sphere>
+
+
+    </a-scene>
+
+  </body>
+</html>
